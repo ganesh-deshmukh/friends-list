@@ -20,7 +20,7 @@ class Friends extends Component {
 Friends.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  phone: PropTypes.number.isRequired,
+  phone: PropTypes.string.isRequired,
   addr: PropTypes.string.isRequired
 };
 

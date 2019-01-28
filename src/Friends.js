@@ -1,9 +1,8 @@
 import React, { Component } from "react";
+import Friend from "./Friend";
 
 class Friends extends Component {
-  constructor() {
-    super();
-    this.state = {
+   state = {
       friends: [
         {
           id: 1,
@@ -23,7 +22,7 @@ class Friends extends Component {
           id: 3,
           name: "Big Head",
           email: "Bighead@gmail.com",
-          phone: "333-444-5555",
+          phone: "3334445555",
           addr: "Silicon Valley"
         }
       ]
@@ -34,11 +33,16 @@ class Friends extends Component {
     return (
       <div>
         {friends.map(friend => (
-          <h1>{friend.name}</h1>
+          <Friend
+            key={friend.id}
+            name={friend.name}
+            email={friend.email}
+            phone={friend.phone}
+            addr={friend.addr}
+          />
         ))}
       </div>
     );
-  }
 }
 
 export default Friends;

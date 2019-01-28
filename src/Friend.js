@@ -9,8 +9,7 @@ class Friends extends Component {
   };
 
   onDeleteClick = (name, e) => {
-    this.props.deleteClickHandler();
-    console.log("Delete button is clicked in chile component");
+    this.props.deleteClickHandler(); // we pass event obje
   };
 
   render() {

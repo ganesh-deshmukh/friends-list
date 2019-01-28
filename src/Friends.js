@@ -28,8 +28,14 @@ class Friends extends Component {
     ]
   };
 
-  deleteFriend = () => {
-    console.log("parent is called");
+  deleteFriend = id => {
+    console.log(id);
+    const { friends } = this.state;
+    const newFriends = friends.filter(item => item.id !== id);
+
+    this.setState({
+      friends: newFriends
+    });
   };
 
   render() {
@@ -40,7 +46,7 @@ class Friends extends Component {
           <Friend
             key={friend.id}
             friend={friend}
-            deleteClickHandler={this.deleteFriend}
+            deleteClickHandler={this.deleteFriend.bind(this, friend.id)}
           />
         ))}
       </div>

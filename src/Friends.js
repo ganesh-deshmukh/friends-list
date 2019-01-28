@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 class Friends extends Component {
   render() {
+    const { name, email, phone, addr } = this.props;
     return (
       <div>
-        <h4>{this.props.name} </h4>
+        <h4>{name} </h4>
         <ul>
-          <li>Emailid: {this.props.email} </li>
-          <li>Phoneno: {this.props.phone} </li>
-          <li>Address: {this.props.addr} </li>
+          <li>Emailid: {email} </li>
+          <li>Phoneno: {phone} </li>
+          <li>Address: {addr} </li>
         </ul>
       </div>
     );

@@ -6,7 +6,7 @@ class Friends extends Component {
     friends: [
       {
         id: 1,
-        name: "GaneshA Deshmukh",
+        name: "GaneshAD",
         email: "gd@gmail.com",
         phone: "9876543210",
         addr: "Mumbai West"

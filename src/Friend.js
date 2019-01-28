@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 class Friends extends Component {
   render() {
-    const { name, email, phone, addr } = this.props;
+    const { name, email, phone, addr } = this.props.friend;
     return (
       <div className="card card-body mb-3">
         <h4>{name} </h4>

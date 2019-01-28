@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Friends extends Component {
   render() {
@@ -15,5 +16,12 @@ class Friends extends Component {
     );
   }
 }
+
+Friends.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  phone: PropTypes.number.isRequired,
+  addr: PropTypes.string.isRequired
+};
 
 export default Friends;

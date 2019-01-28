@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import { Consumer } from "./context";
+
 class Friends extends Component {
   state = {};
 
@@ -8,33 +10,48 @@ class Friends extends Component {
     console.log(name);
   };
 
-  onDeleteClick = (name, e) => {
-    this.props.deleteClickHandler(); // we pass event obje
+  onDeleteClick = (id, dispatch) => {
+    dispatch({
+      type: "DELETE_FRIEND",
+      payload: id
+    });
   };
 
   render() {
-    const { name, email, phone, addr } = this.props.friend;
+    const { id, name, email, phone, addr } = this.props.friend;
+    const { onShowClick } = this.state;
     return (
-      <div className="card card-body mb-3">
-        <h4>
-          {name + " "}
-          <i
-            onClick={this.onShowClick.bind(this, name)}
-            style={{ cursor: "pointer" }}
-            className="fas fa-sort-down"
-          />
-          <i
-            onClick={this.onDeleteClick.bind(this, name)}
-            style={{ cursor: "pointer", float: "right", color: "red" }}
-            className="fas fa-times"
-          />
-        </h4>
-        <ul className="list-group">
-          <li className="list-group-item">Emailid: {email} </li>
-          <li className="list-group-item">Phoneno: {phone} </li>
-          <li className="list-group-item">Address: {addr} </li>
-        </ul>
-      </div>
+      <Consumer>
+        {value => {
+          const { dispatch } = value;
+          return (
+            <div className="card card-body mb-3">
+              <h4>
+                {name + " "}
+                <i
+                  onClick={() => {
+                    this.setState({
+                      onShowClick: !this.onShowClick
+                    });
+                  }}
+                  style={{ cursor: "pointer" }}
+                  className="fas fa-sort-down"
+                />
+                <i
+                  onClick={this.onDeleteClick.bind(this, id, dispatch)}
+                  style={{ cursor: "pointer", float: "right", color: "red" }}
+                  className="fas fa-times"
+                />
+              </h4>
+              <ul className="list-group">
+                <li className="list-group-item">Emailid: {email} </li>
+                <li className="list-group-item">Phoneno: {phone} </li>
+                <li className="list-group-item">Address: {addr} </li>
+              </ul>
+            </div>
+          );
+        }}
+      </Consumer>
     );
   }
 }

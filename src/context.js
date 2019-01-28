@@ -2,6 +2,20 @@ import React, { Component } from "react";
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "DELETE_FRIEND":
+      return {
+        ...state,
+        friends: state.friends.filter(
+          friend => friend.id !== action.payload
+          // payload is info sent = id of clicked-element.
+        )
+      };
+    default:
+      return state;
+  }
+};
 export class Provider extends Component {
   state = {
     friends: [
@@ -26,7 +40,12 @@ export class Provider extends Component {
         phone: "3334445555",
         addr: "Silicon Valley"
       }
-    ]
+    ],
+
+    // dispatch is part of state
+    dispatch: action => {
+      this.setState(state => reducer(state, action));
+    }
   };
 
   render() {

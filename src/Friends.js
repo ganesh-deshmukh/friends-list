@@ -5,12 +5,12 @@ class Friends extends Component {
   render() {
     const { name, email, phone, addr } = this.props;
     return (
-      <div>
+      <div className="card card-body mb-3">
         <h4>{name} </h4>
-        <ul>
-          <li>Emailid: {email} </li>
-          <li>Phoneno: {phone} </li>
-          <li>Address: {addr} </li>
+        <ul className="list-group">
+          <li className="list-group-item">Emailid: {email} </li>
+          <li className="list-group-item">Phoneno: {phone} </li>
+          <li className="list-group-item">Address: {addr} </li>
         </ul>
       </div>
     );

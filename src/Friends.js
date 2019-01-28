@@ -6,14 +6,14 @@ class Friends extends Component {
     friends: [
       {
         id: 1,
-        name: "GaneshAD",
+        name: "Erlich Backman",
         email: "gd@gmail.com",
         phone: "9876543210",
         addr: "Mumbai West"
       },
       {
         id: 2,
-        name: "Mayur",
+        name: "Richard Hendricks",
         email: "mayur@gmail.com",
         phone: "1234567890",
         addr: "Mumbai East"

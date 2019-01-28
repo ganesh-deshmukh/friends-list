@@ -4,11 +4,11 @@ class Friends extends Component {
   render() {
     return (
       <div>
-        <h4>GaneshA Deshmukh</h4>
+        <h4>{this.props.name} </h4>
         <ul>
-          <li>Emailid:gd@gmail.com</li>
-          <li>Phoneno:9876543210</li>
-          <li>Address:Mumbai West</li>
+          <li>Emailid: {this.props.email} </li>
+          <li>Phoneno: {this.props.phone} </li>
+          <li>Address: {this.props.addr} </li>
         </ul>
       </div>
     );

@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Header extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Friends-Lister Header Component</h1>
-      </div>
-    );
-  }
-}
+const Header = props => {
+  return (
+    <div>
+      <h1>{props.branding}</h1>
+    </div>
+  );
+};
 
 export default Header;

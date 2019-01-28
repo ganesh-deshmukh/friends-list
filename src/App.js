@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Friend from "./Friend";
+import Friends from "./Friends";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -11,18 +11,7 @@ class App extends Component {
         <Header branding="Friends-Lister" />
         <div className="container">
           <h1>The App Component </h1>
-          <Friend
-            name="GaneshA Deshmukh"
-            email="gd@gmail.com"
-            phone="9876543210"
-            addr="Mumbai West"
-          />
-          <Friend
-            name="John Doe"
-            email="john@gmail.com"
-            phone="1234567890"
-            addr="Mumbai East"
-          />
+          <Friends />
         </div>
       </div>
     );

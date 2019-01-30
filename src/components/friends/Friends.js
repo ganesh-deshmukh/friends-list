@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Friend from "./Friend";
-import { Consumer } from "./context";
+import { Consumer } from "../../context";
 
 class Friends extends Component {
   render() {

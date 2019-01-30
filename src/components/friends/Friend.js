@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { Consumer } from "./context";
+import { Consumer } from "../../context";
 
 class Friends extends Component {
   state = {
     onShowClick: false
   };
 
-  onShowClick = (name, e) => {};
+  onShowClick = (name, e) => {
+    console.log("showing contacts");
+  };
 
   onDeleteClick = (id, dispatch) => {
     dispatch({

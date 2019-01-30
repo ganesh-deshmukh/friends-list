@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { Consumer } from "./context";
 
 class Friends extends Component {
-  state = {};
-
-  onShowClick = (name, e) => {
-    console.log(name);
+  state = {
+    onShowClick: false
   };
+
+  onShowClick = (name, e) => {};
 
   onDeleteClick = (id, dispatch) => {
     dispatch({
@@ -31,7 +31,7 @@ class Friends extends Component {
                 <i
                   onClick={() => {
                     this.setState({
-                      onShowClick: !this.onShowClick
+                      onShowClick: !this.state.onShowClick
                     });
                   }}
                   style={{ cursor: "pointer" }}
@@ -43,11 +43,13 @@ class Friends extends Component {
                   className="fas fa-times"
                 />
               </h4>
-              <ul className="list-group">
-                <li className="list-group-item">Emailid: {email} </li>
-                <li className="list-group-item">Phoneno: {phone} </li>
-                <li className="list-group-item">Address: {addr} </li>
-              </ul>
+              {onShowClick ? (
+                <ul className="list-group">
+                  <li className="list-group-item">Emailid: {email} </li>
+                  <li className="list-group-item">Phoneno: {phone} </li>
+                  <li className="list-group-item">Address: {addr} </li>
+                </ul>
+              ) : null}
             </div>
           );
         }}

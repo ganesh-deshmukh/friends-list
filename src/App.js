@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import { Provider } from "./context";
-import AddFriends from "./components/friends/AddFriends";
+import AddFriends from "./components/friends/AddFriend";
 
 class App extends Component {
   render() {

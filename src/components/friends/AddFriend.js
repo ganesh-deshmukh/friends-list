@@ -22,6 +22,13 @@ class AddFriends extends Component {
     };
 
     dispatch({ type: "ADD_FRIEND", payload: newFriend });
+
+    this.setState({
+      name: "",
+      email: "",
+      phone: "",
+      addr: ""
+    });
   };
 
   onChange = e => {
@@ -43,18 +50,6 @@ class AddFriends extends Component {
               <div className="card-header">Add Friends</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                  <div className="form-groups">
-                    <label htmlFor="name">Name</label>
-                    <input
-                      value={name}
-                      type="text"
-                      name="name"
-                      className="form-control form-control-lg mb-3"
-                      placeholder="Enter name"
-                      onChange={this.onChange}
-                    />
-                  </div>
-
                   <div className="form-groups">
                     <label htmlFor="name">Email</label>
                     <input

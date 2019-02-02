@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import uuid from "uuid";
+import TextInputGroup from "../layouts/TextInputGroup";
 
 class AddFriends extends Component {
   state = {
@@ -50,41 +51,36 @@ class AddFriends extends Component {
               <div className="card-header">Add Friends</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
-                  <div className="form-groups">
-                    <label htmlFor="name">Email</label>
-                    <input
-                      value={email}
-                      type="email"
-                      name="email"
-                      className="form-control form-control-lg mb-3 "
-                      placeholder="Enter email"
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-groups">
-                    <label htmlFor="name">Phone</label>
-                    <input
-                      value={phone}
-                      type="text"
-                      name="phone"
-                      className="form-control form-control-lg mb-3"
-                      placeholder="Enter phone"
-                      onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-groups">
-                    <label htmlFor="name">Address</label>
-                    <input
-                      value={addr}
-                      type="text"
-                      name="addr"
-                      className="form-control form-control-lg mb-3"
-                      placeholder="Enter address"
-                      onChange={this.onChange}
-                    />
-                  </div>
+                  <TextInputGroup
+                    label="Name"
+                    name="name"
+                    placeholder="Enter your Name"
+                    value={name}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="EmailID"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your Email"
+                    value={email}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="phone"
+                    name="phone"
+                    placeholder="Enter your Phone"
+                    value={phone}
+                    onChange={this.onChange}
+                  />
+                  <TextInputGroup
+                    label="Address"
+                    name="addr"
+                    placeholder="Enter your Address"
+                    value={addr}
+                    onChange={this.onChange}
+                  />
                   <input
-                    // value={}
                     type="submit"
                     value="Add Friend"
                     className="btn btn-block btn-primary"

@@ -12,6 +12,11 @@ const reducer = (state, action) => {
           // payload is info sent = id of clicked-element.
         )
       };
+    case "ADD_FRIEND":
+      return {
+        ...state,
+        friends: [action.payload, ...state.friends]
+      };
     default:
       return state;
   }

@@ -9,7 +9,7 @@ class Friends extends Component {
   };
 
   onShowClick = (name, e) => {
-    console.log("showing contacts");
+    console.log("showing friends");
   };
 
   onDeleteClick = (id, dispatch) => {

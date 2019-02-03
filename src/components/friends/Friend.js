@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import { Consumer } from "../../context";
 
@@ -13,10 +14,12 @@ class Friends extends Component {
   };
 
   onDeleteClick = (id, dispatch) => {
-    dispatch({
-      type: "DELETE_FRIEND",
-      payload: id
-    });
+    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(
+      dispatch({
+        type: "DELETE_FRIEND",
+        payload: id
+      })
+    );
   };
 
   render() {

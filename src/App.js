@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Friends from "./components/friends/Friends";
 import Header from "./components/layouts/Header";
+import About from "./components/pages/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Provider } from "./context";
 import AddFriends from "./components/friends/AddFriend";
@@ -11,13 +13,17 @@ class App extends Component {
   render() {
     return (
       <Provider>
-        <div className="App">
-          <Header branding="Friends-Lister" />
-          <div className="container">
-            <AddFriends />
-            <Friends />
+        <Router>
+          <div className="App">
+            <Header branding="Friends-Lister" />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Friends} />
+                <Route exact path="/about" component={About} />
+              </Switch>
+            </div>
           </div>
-        </div>
+        </Router>
       </Provider>
     );
   }

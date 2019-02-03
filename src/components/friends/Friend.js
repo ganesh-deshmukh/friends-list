@@ -27,7 +27,7 @@ class Friends extends Component {
         {value => {
           const { dispatch } = value;
           return (
-            <div className="card card-body mb-3">
+            <div className="card card-body border-success mb-3">
               <h4>
                 {name + " "}
                 <i
@@ -37,7 +37,7 @@ class Friends extends Component {
                     });
                   }}
                   style={{ cursor: "pointer" }}
-                  className="fas fa-sort-down"
+                  className="fas fa-sort-down text-primary"
                 />
                 <i
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}

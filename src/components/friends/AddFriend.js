@@ -123,7 +123,7 @@ class AddFriends extends Component {
                   <input
                     type="submit"
                     value="Add Friend"
-                    className="btn btn-block btn-primary"
+                    className="mt-3 btn btn-block btn-primary"
                   />
                 </form>
               </div>

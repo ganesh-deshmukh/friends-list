@@ -10,6 +10,9 @@ class Friends extends Component {
           const { friends } = value;
           return (
             <React.Fragment>
+              <h1 className="display-4 mb-3">
+                <span className="text-primary">Friends </span>List
+              </h1>
               {friends.map(friend => (
                 <Friend key={friend.id} friend={friend} />
               ))}

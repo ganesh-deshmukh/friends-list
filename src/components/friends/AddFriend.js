@@ -66,6 +66,7 @@ class AddFriends extends Component {
       addr: "",
       errors: {}
     });
+    this.props.history.push("/");
   };
 
   onChange = e => {
@@ -83,7 +84,7 @@ class AddFriends extends Component {
           // value contains entire state
           const { dispatch } = value;
           return (
-            <div className="card mb-3">
+            <div className="card mb-3 border-success">
               <div className="card-header">Add Friends</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>

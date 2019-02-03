@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import Friends from "./components/friends/Friends";
 import Header from "./components/layouts/Header";
 import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -21,6 +23,7 @@ class App extends Component {
                 <Route exact path="/" component={Friends} />
                 <Route exact path="/about/" component={About} />
                 <Route exact path="/add" component={AddFriends} />
+                <Route component={NotFound} />
               </Switch>
             </div>
           </div>

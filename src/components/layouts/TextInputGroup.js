@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 
 // accept values in props and apply destructuring.
 // instead of using (props.name)
@@ -10,7 +11,8 @@ const TextInputGroup = ({
   value,
   placeholder,
   type,
-  onChange
+  onChange,
+  error
 }) => {
   return (
     <div className="form-groups">
@@ -19,10 +21,14 @@ const TextInputGroup = ({
         value={value}
         type={type}
         name={name}
-        className="form-control form-control-lg mb-3"
         placeholder={placeholder}
         onChange={onChange}
+        className={classnames("form-control form-control-lg ", {
+          "is-invalid ": error
+        })}
       />
+
+      {error && <div className="invalid-feedback">{error}</div>}
     </div>
   );
 };
@@ -33,7 +39,8 @@ TextInputGroup.protoTyeps = {
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired
 };
 
 TextInputGroup.defaultProps = {

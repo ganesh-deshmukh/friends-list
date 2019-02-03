@@ -8,12 +8,47 @@ class AddFriends extends Component {
     name: "",
     phone: "",
     email: "",
-    addr: ""
+    addr: "",
+    errors: {}
   };
 
   onSubmit = (dispatch, e) => {
     e.preventDefault();
     const { name, email, phone, addr } = this.state;
+
+    // error checking
+    if (name === "") {
+      this.setState({
+        errors: {
+          name: "Name is required field"
+        }
+      });
+      return;
+    }
+    if (email === "") {
+      this.setState({
+        errors: {
+          email: "Email is required field"
+        }
+      });
+      return;
+    }
+    if (phone === "") {
+      this.setState({
+        errors: {
+          phone: "Phone number is required field"
+        }
+      });
+      return;
+    }
+    if (addr === "") {
+      this.setState({
+        errors: {
+          addr: "Address is required field"
+        }
+      });
+      return;
+    }
     const newFriend = {
       id: uuid(),
       name,
@@ -28,7 +63,8 @@ class AddFriends extends Component {
       name: "",
       email: "",
       phone: "",
-      addr: ""
+      addr: "",
+      errors: {}
     });
   };
 
@@ -39,7 +75,7 @@ class AddFriends extends Component {
   };
 
   render() {
-    const { name, email, phone, addr } = this.state;
+    const { name, email, phone, addr, errors } = this.state;
 
     return (
       <Consumer>
@@ -57,6 +93,7 @@ class AddFriends extends Component {
                     placeholder="Enter your Name"
                     value={name}
                     onChange={this.onChange}
+                    error={errors.name}
                   />
                   <TextInputGroup
                     label="EmailID"
@@ -65,13 +102,15 @@ class AddFriends extends Component {
                     placeholder="Enter your Email"
                     value={email}
                     onChange={this.onChange}
+                    error={errors.email}
                   />
                   <TextInputGroup
-                    label="phone"
+                    label="Phone Number"
                     name="phone"
                     placeholder="Enter your Phone"
                     value={phone}
                     onChange={this.onChange}
+                    error={errors.phone}
                   />
                   <TextInputGroup
                     label="Address"
@@ -79,6 +118,7 @@ class AddFriends extends Component {
                     placeholder="Enter your Address"
                     value={addr}
                     onChange={this.onChange}
+                    error={errors.addr}
                   />
                   <input
                     type="submit"

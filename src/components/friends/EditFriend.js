@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layouts/TextInputGroup";
-import axios from "axios";
-class AddFriends extends Component {
+class ExportFriends extends Component {
   state = {
     name: "",
     phone: "",
@@ -48,20 +47,6 @@ class AddFriends extends Component {
       });
       return;
     }
-    const newFriend = {
-      name,
-      email,
-      phone,
-      addr
-    };
-
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/users/",
-      newFriend
-    );
-
-    dispatch({ type: "ADD_FRIEND", payload: response.data });
-
     this.setState({
       name: "",
       email: "",
@@ -88,7 +73,7 @@ class AddFriends extends Component {
           const { dispatch } = value;
           return (
             <div className="card mb-3 border-success">
-              <div className="card-header">Add Friends</div>
+              <div className="card-header ">Edit Friends</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit.bind(this, dispatch)}>
                   <TextInputGroup
@@ -139,4 +124,4 @@ class AddFriends extends Component {
   }
 }
 
-export default AddFriends;
+export default ExportFriends;

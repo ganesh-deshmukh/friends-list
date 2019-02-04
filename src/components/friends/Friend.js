@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 import { Consumer } from "../../context";
 
 class Friends extends Component {
@@ -13,13 +13,13 @@ class Friends extends Component {
     console.log("showing friends");
   };
 
-  onDeleteClick = (id, dispatch) => {
-    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`).then(
-      dispatch({
-        type: "DELETE_FRIEND",
-        payload: id
-      })
-    );
+  onDeleteClick = async (id, dispatch) => {
+    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+    dispatch({
+      type: "DELETE_FRIEND",
+      payload: id
+    });
   };
 
   render() {
@@ -42,11 +42,23 @@ class Friends extends Component {
                   style={{ cursor: "pointer" }}
                   className="fas fa-sort-down text-primary"
                 />
+
                 <i
                   onClick={this.onDeleteClick.bind(this, id, dispatch)}
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   className="fas fa-times"
                 />
+                <Link to={`contact/edit/`}>
+                  <i
+                    className="fas fa-pencil-alt "
+                    style={{
+                      cursor: "pointer",
+                      float: "right",
+                      color: "green",
+                      marginRight: "1rem"
+                    }}
+                  />
+                </Link>
               </h4>
               {onShowClick ? (
                 <ul className="list-group">

@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import { Provider } from "./context";
 import AddFriends from "./components/friends/AddFriend";
+import EditFriends from "./components/friends/EditFriend";
 
 class App extends Component {
   render() {
@@ -22,7 +23,8 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Friends} />
                 <Route exact path="/about/" component={About} />
-                <Route exact path="/add" component={AddFriends} />
+                <Route exact path="/contact/add" component={AddFriends} />
+                <Route exact path="/contact/edit" component={EditFriends} />
                 <Route component={NotFound} />
               </Switch>
             </div>

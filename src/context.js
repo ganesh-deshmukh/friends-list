@@ -32,12 +32,11 @@ export class Provider extends Component {
     }
   };
 
-  componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(res =>
-      this.setState({
-        friends: res.data
-      })
-    );
+  async componentDidMount() {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    this.setState({
+      friends: res.data
+    });
   }
 
   render() {

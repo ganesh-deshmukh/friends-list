@@ -5,45 +5,38 @@ const Context = React.createContext();
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "DELETE_FRIEND":
+    case "DELETE_friend":
       return {
         ...state,
-        friends: state.friends.filter(
-          friend => friend.id !== action.payload
-          // payload is info sent = id of clicked-element.
-        )
+        friends: state.friends.filter(friend => friend.id !== action.payload)
       };
-    case "UPDATE_FRIEND":
-      return {
-        ...state,
-        friends: state.friends.map(item => {
-          item.id === action.payload.id ? (item = action.payload) : item;
-        })
-      };
-    case "ADD_FRIEND":
+    case "ADD_friend":
       return {
         ...state,
         friends: [action.payload, ...state.friends]
+      };
+    case "UPDATE_friend":
+      return {
+        ...state,
+        friends: state.friends.map(friend =>
+          friend.id === action.payload.id ? (friend = action.payload) : friend
+        )
       };
     default:
       return state;
   }
 };
+
 export class Provider extends Component {
   state = {
     friends: [],
-
-    // dispatch is part of state
-    dispatch: action => {
-      this.setState(state => reducer(state, action));
-    }
+    dispatch: action => this.setState(state => reducer(state, action))
   };
 
   async componentDidMount() {
     const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-    this.setState({
-      friends: res.data
-    });
+
+    this.setState({ friends: res.data });
   }
 
   render() {

@@ -65,6 +65,24 @@ class ExportFriends extends Component {
       });
       return;
     }
+
+    const updfriend = {
+      name,
+      email,
+      phone,
+      addr
+    };
+
+    const { id } = this.props.match.params;
+
+    const res = await axios.put(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      updfriend
+    );
+
+    dispatch({ type: "UPDATE_friend", payload: res.data });
+
+    // Clear State
     this.setState({
       name: "",
       email: "",
@@ -72,6 +90,7 @@ class ExportFriends extends Component {
       addr: "",
       errors: {}
     });
+
     this.props.history.push("/");
   };
 

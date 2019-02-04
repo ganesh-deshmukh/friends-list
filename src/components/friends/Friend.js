@@ -50,6 +50,9 @@ class Friends extends Component {
                 />
                 <Link to={`friend/edit/${id}`}>
                   <i
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Tooltip-not-working!"
                     className="fas fa-pencil-alt "
                     style={{
                       cursor: "pointer",

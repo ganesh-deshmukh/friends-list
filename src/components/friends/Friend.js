@@ -48,7 +48,7 @@ class Friends extends Component {
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   className="fas fa-times"
                 />
-                <Link to={`contact/edit/`}>
+                <Link to={`friend/edit/${id}`}>
                   <i
                     className="fas fa-pencil-alt "
                     style={{

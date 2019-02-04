@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layouts/TextInputGroup";
+import axios from "axios";
+
 class ExportFriends extends Component {
   state = {
     name: "",
@@ -9,6 +11,22 @@ class ExportFriends extends Component {
     addr: "",
     errors: {}
   };
+
+  async componentDidMount() {
+    const { id } = this.props.match.params;
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    const friend = res.data;
+
+    this.setState({
+      name: friend.name,
+      email: friend.email,
+      phone: friend.phone,
+      addr: friend.address
+    });
+  }
 
   onSubmit = async (dispatch, e) => {
     e.preventDefault();
@@ -111,7 +129,7 @@ class ExportFriends extends Component {
                   />
                   <input
                     type="submit"
-                    value="Add Friend"
+                    value="Edit Friend"
                     className="mt-3 btn btn-block btn-primary"
                   />
                 </form>
